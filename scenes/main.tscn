@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvqy8x7q2n8qr"]
+
+[ext_resource type="Script" path="res://scripts/game_controller.gd" id="1_0abcd"]
+
+[sub_resource type="GDScript" id="GDScript_2efgh"]
+script.source = "res://scripts/grid_manager.gd"
+
+[sub_resource type="GDScript" id="GDScript_3ijkl"]
+script.source = "res://scripts/turn_manager.gd"
+
+[sub_resource type="GDScript" id="GDScript_4mnop"]
+script.source = "res://scripts/ui_manager.gd"
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0abcd")
+
+[node name="GridManager" type="Node" parent="."]
+script = SubResource("GDScript_2efgh")
+
+[node name="TurnManager" type="Node" parent="."]
+script = SubResource("GDScript_3ijkl")
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_4mnop")
+
+[node name="TurnLabel" type="Label" parent="UIManager"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+text = "Turn 1 - Player 1"
+vertical_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="UIManager"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -23.0
+offset_right = 200.0
+text = "Unit HP: 100/100"
+vertical_alignment = 1
+
+[node name="ActionButton" type="Button" parent="UIManager"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -50.0
+offset_right = 60.0
+text = "Your Turn"
+
+[node name="EndTurnButton" type="Button" parent="UIManager"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -100.0
+offset_right = 60.0
+text = "End Turn"
+
+[node name="VictoryPanel" type="Panel" parent="UIManager"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+
+[node name="VictoryLabel" type="Label" parent="UIManager/VictoryPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "VICTORY!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DefeatPanel" type="Panel" parent="UIManager"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+
+[node name="DefeatLabel" type="Label" parent="UIManager/DefeatPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "DEFEAT!"
+horizontal_alignment = 1
+vertical_alignment = 1
